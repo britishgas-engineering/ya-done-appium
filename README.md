@@ -1,8 +1,8 @@
 # ya-done-appium
 
-  **Ready to use yadda BBD test framework with appium and chai**  
+### THIS IS A WORK IN PROGRESS (VERY ALPHA PLEASE FEEL FREE TO USE IT AND RAISE ISSUES)
 
-[![travis build passing](https://travis-ci.org/britishgas-engineering/ya-done.svg?branch=master)](https://travis-ci.org/britishgas-engineering/ya-done-appium)
+  **Ready to use yadda BBD test framework with appium and chai**  
 
 ```js
 npm i ya-done-appium --save
@@ -13,7 +13,8 @@ ya-done configures 'yadda' with chai with 'appium'. 'yadda' has been created wit
 
 ### Technologies Used
 - Pre-configured  _[yadda](https://github.com/acuminous/yadda)_
-- Pre-configured  _[chai](http://chaijs.com/)_
+- Pre-configured  _[chai](http://chaijs.com)_
+- Pre-configured  _[appium](http://appium.io)_
 
 ### Default steps
 ya-done-appium has preconfigured "set-up" and "tear down" steps.
@@ -22,7 +23,7 @@ ya-done-appium has preconfigured "set-up" and "tear down" steps.
 These steps are added to the yadda library by default and are used in the example project and seen below.
 
 ### Configuration
-ya-done exposes "yaddaCore" which requires a step library to run.  The web-browser to be used for testing can be defined by either a string or configuration object. When using a configuration object the window size can also be set, more configuration option may become available as issues are found or raised.
+ya-done exposes "yaddaCore" which requires a step library to run.  
 
 ```js
 import { yaddaCore } from 'ya-done';
@@ -57,9 +58,9 @@ yaddaCore(steps);
 Feature: ya-done example
 
     Scenario: appium is simple with ya-done
-      Given a web browser
-      When the browser navigates to github
-      Then the headers should not be hello world
+      Given a mobile app
+      When the mobile user does nothing
+      Then the mobile app does nothing
       And end the test
 ```
 
@@ -69,14 +70,14 @@ import { yaddaLibrary } from 'ya-done';
 
 const runTests = () => yaddaLibrary()
   .when(
-    'the browser navigates to github',
+    'the mobile user does nothing',
     function loadGithub(next) {
       this.driver.get('http://github.com');
       next();
     }
   )
   .then(
-    'the headers should not be hello world',
+    'Then the mobile app does nothing',
     (next) => {
       expect('#site-container h1.heading')
       .dom
