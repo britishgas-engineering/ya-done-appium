@@ -1,6 +1,6 @@
-# ya-done
+# ya-done-appium
 
-  **Ready to use yadda BBD test framework with appium and chai for chromedriver and phantomjs**  
+  **Ready to use yadda BBD test framework with appium and chai**  
 
 [![travis build passing](https://travis-ci.org/britishgas-engineering/ya-done.svg?branch=master)](https://travis-ci.org/britishgas-engineering/ya-done-appium)
 
