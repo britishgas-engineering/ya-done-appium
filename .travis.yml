@@ -1,0 +1,19 @@
+---
+language: node_js
+node_js:
+  - "6.7.0"
+sudo: false
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm config set registry http://registry.npmjs.org/
+  - npm config set spin false
+  - npm install -g appium
+  - npm install -g appium-doctor
+  - appium
+  - appium-doctor
+script:
+  - npm test
+notifications:
+  email: false
