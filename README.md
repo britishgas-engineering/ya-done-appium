@@ -41,9 +41,11 @@ Using the example project provided.
 ```
 │   index.js    
 └───steps
-│   │ index.js
+│   └───given
+│   └───when
+│   └───then
 └───features
-    │ hello.feature
+    │ clever.feature
 ```
 
 **index.js (project level)**
@@ -86,6 +88,7 @@ import { yaddaLibrary } from 'ya-done-appium';
   this works with appium, we have not yet attached the driver
   in a test but that should work, fingers crossed, ;)
   when we are at that stage this will be updated
+  (script below is a concatenation of the given when then files)
 */
 
 const runTests = () => yaddaLibrary()
