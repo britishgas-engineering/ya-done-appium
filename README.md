@@ -1,6 +1,6 @@
 # ya-done-appium
 
-### THIS IS A WORK IN PROGRESS (VERY ALPHA PLEASE FEEL FREE TO USE IT AND RAISE ISSUES)
+### THIS IS A WORK IN PROGRESS (BETA VERSION, THERE MAY STILL BE ISSUES. PLEASE RAISE)
 
   **Ready to use yadda BBD test framework with appium and chai**  
 
@@ -61,7 +61,7 @@ const device = {
     platformName: 'Android',
     platformVersion: '7.0',
     deviceName: 'device',
-    app:  // path top
+    app:  // Add Android APK path here
   };
 
 yaddaCore(steps, device);
@@ -69,36 +69,44 @@ yaddaCore(steps, device);
 
 **hello.feature**
 ```feature
-Feature: ya-done example
+Feature: Make it work
 
-    Scenario: appium is simple with ya-done
-      Given a mobile app
-      When the mobile user does nothing
-      Then the mobile app does nothing
-      And end the test
+Scenario: Cleverness
+  Given I think I am clever
+  When I am clever
+  Then I am clever
+
 ```
 
 **index.js  (steps level)**
 ```js
-import { yaddaLibrary } from 'ya-done';
+import { yaddaLibrary } from 'ya-done-appium';
 
-// sudo code base on : https://github.com/appium/sample-code/blob/master/sample-code/examples/node/android-simple.js
+/*
+  this works with appium, we have not yet attached the driver
+  in a test but that should work, fingers crossed, ;)
+  when we are at that stage this will be updated
+*/
+
 const runTests = () => yaddaLibrary()
-  .when(
-    'the mobile user does nothing',
+  .given(
+    'I think I am clever',
     (next) => {
-      await this.driver
-        .elementByAccessibilityId('Graphics').click();
-
+      assert.ok(true, this.step)
+      next();
+    }
+  )
+  .when(
+    'I am clever',
+    (next) => {
+      assert.ok(true, this.step)
       next();
     }
   )
   .then(
-    'Then the mobile app does nothing',
+    'I am clever',
     (next) => {
-      expect(this.elementByAccessibilityId('Arcs'))
-      .should.eventually.exist;
-
+      assert.ok(true, this.step)
       next();
     }
   );
