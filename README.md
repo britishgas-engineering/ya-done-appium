@@ -50,7 +50,21 @@ Using the example project provided.
 ```js
 import { yaddaCore } from 'ya-done';
 import steps from './steps';
-yaddaCore(steps);
+
+/*
+  configuration for device
+  example device configs can be seen here :
+  https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
+*/
+
+const device = {
+    platformName: 'Android',
+    platformVersion: '7.0',
+    deviceName: 'device',
+    app:  // path top
+  };
+
+yaddaCore(steps, device);
 ```
 
 **hello.feature**
@@ -68,23 +82,22 @@ Feature: ya-done example
 ```js
 import { yaddaLibrary } from 'ya-done';
 
+// sudo code base on : https://github.com/appium/sample-code/blob/master/sample-code/examples/node/android-simple.js
 const runTests = () => yaddaLibrary()
   .when(
     'the mobile user does nothing',
-    function loadGithub(next) {
-      this.driver.get('http://github.com');
+    (next) => {
+      await this.driver
+        .elementByAccessibilityId('Graphics').click();
+
       next();
     }
   )
   .then(
     'Then the mobile app does nothing',
     (next) => {
-      expect('#site-container h1.heading')
-      .dom
-      .to
-      .not
-      .contain
-      .text('hello world');
+      expect(this.elementByAccessibilityId('Arcs'))
+      .should.eventually.exist;
 
       next();
     }
