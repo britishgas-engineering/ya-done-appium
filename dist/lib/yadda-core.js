@@ -2,7 +2,6 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
-import chaiAsPromised from 'chai-as-promised';
 
 function buildDriver() {
   require('source-map-support').install();
@@ -18,7 +17,7 @@ function setBaseSteps(library, device) {
     function setWindowSize(done) {
       this.driver
       .init(device)
-      .setImplicitWaitTimeout(3000);
+      .setImplicitWaitTimeout(3000)
       .then(() => done());
     }
   )
