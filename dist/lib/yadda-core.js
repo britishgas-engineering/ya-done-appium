@@ -39,7 +39,7 @@ function buildYadda(library, device) {
   const features = new Yadda.FeatureFileSearch('features');
   const builtLibrary = setBaseSteps(library, device);
   const driver = buildDriver();
-  require("./helpers/logging").configure(driver);
+  require("./log").configure(driver);
   return features
   .each(
     file => featureFile(
