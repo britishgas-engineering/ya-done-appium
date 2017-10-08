@@ -26,7 +26,7 @@ These steps are added to the yadda library by default and are used in the exampl
 ya-done exposes "yaddaCore" which requires a step library to run.  
 
 ```js
-import { yaddaCore } from 'ya-done';
+import { yaddaCore } from 'ya-done-appium';
 import steps from './steps';
 /* configure */
 yaddaCore(steps);
@@ -50,7 +50,7 @@ Using the example project provided.
 
 **index.js (project level)**
 ```js
-import { yaddaCore } from 'ya-done';
+import { yaddaCore } from 'ya-done-appium';
 import steps from './steps';
 
 /*

@@ -2,6 +2,7 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
+const webdriver = require('selenium-webdriver');
 
 function buildDriver() {
   require('source-map-support').install();
