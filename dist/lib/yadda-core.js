@@ -5,11 +5,10 @@ const wd = require('wd');
 
 function buildDriver() {
   require('source-map-support').install();
-   wd.promiseChainRemote({
+   return wd.promiseChainRemote({
     host: 'localhost',
     port: 4723,
   });
-  return wd;
 };
 
 function setBaseSteps(library, device) {
