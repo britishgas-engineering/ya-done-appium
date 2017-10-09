@@ -5,7 +5,7 @@ const wd = require('wd');
 
 function buildDriver() {
   require('source-map-support').install();
-   return wd.promiseChainRemote({
+    return wd.promiseChainRemote({
     host: 'localhost',
     port: 4723,
   });
@@ -14,11 +14,11 @@ function buildDriver() {
 function setBaseSteps(library, device) {
   library.define(
     'a mobile app',
-    function setWindowSize(done) {
-      this.driver
-      .init(device)
-      .setImplicitWaitTimeout(3000)
-      .then(() => done());
+      function setWindowSize(done) {
+       this.driver.init(device).then((built) => {
+         this.log('set-up device', built);
+         done();
+       });
     }
   )
   .define(
@@ -38,7 +38,6 @@ function buildYadda(library, device, logVerbose) {
   Yadda.plugins.mocha.StepLevelPlugin.init();
   const features = new Yadda.FeatureFileSearch('features');
   const builtLibrary = setBaseSteps(library, device);
-  const driver = buildDriver();
   if (logVerbose) {
     require("./log").configure(driver);
   }
@@ -51,7 +50,7 @@ function buildYadda(library, device, logVerbose) {
           builtLibrary,
           {
             ctx: {},
-            driver,
+            driver: buildDriver(),
             log: (label, data) => console.log(label, data)
           }
         );

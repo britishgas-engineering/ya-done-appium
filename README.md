@@ -2,6 +2,11 @@
 
 ### THIS IS A WORK IN PROGRESS (BETA VERSION, THERE MAY STILL BE ISSUES. PLEASE RAISE)
 
+### From Version 0.3.0
+- set up works with async and await ensure you have _babel-polyfill_
+- added log the _this_ available in steps
+- added global logging availability
+
   **Ready to use yadda BBD test framework with appium and chai**  
 
 ```js
@@ -66,7 +71,7 @@ const device = {
     app:  // Add Android APK path here
   };
 
-yaddaCore(steps, device);
+yaddaCore(steps, device); // add additional true flag for global logging
 ```
 
 **hello.feature**
