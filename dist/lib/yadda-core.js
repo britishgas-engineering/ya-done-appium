@@ -2,14 +2,14 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
-const webdriver = require('selenium-webdriver');
 
 function buildDriver() {
   require('source-map-support').install();
-  return wd.promiseChainRemote({
+   wd.promiseChainRemote({
     host: 'localhost',
     port: 4723,
   });
+  return wd;
 };
 
 function setBaseSteps(library, device) {
@@ -32,7 +32,7 @@ function setBaseSteps(library, device) {
   return library;
 }
 
-function buildYadda(library, device) {
+function buildYadda(library, device, logVerbose) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
@@ -40,7 +40,9 @@ function buildYadda(library, device) {
   const features = new Yadda.FeatureFileSearch('features');
   const builtLibrary = setBaseSteps(library, device);
   const driver = buildDriver();
-  require("./log").configure(driver);
+  if (logVerbose) {
+    require("./log").configure(driver);
+  }
   return features
   .each(
     file => featureFile(
@@ -50,7 +52,8 @@ function buildYadda(library, device) {
           builtLibrary,
           {
             ctx: {},
-            driver
+            driver,
+            log: (label, data) => console.log(label, data)
           }
         );
 
