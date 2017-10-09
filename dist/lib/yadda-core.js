@@ -3,12 +3,13 @@
 const Yadda = require('yadda');
 const wd = require('wd');
 
-function buildDriver() {
+function buildDriver(server) {
   require('source-map-support').install();
-    return wd.promiseChainRemote({
+    const configServer = server || {
     host: 'localhost',
     port: 4723,
-  });
+  };
+  return wd.promiseChainRemote(configServer);
 };
 
 function setBaseSteps(library, device) {
@@ -31,7 +32,7 @@ function setBaseSteps(library, device) {
   return library;
 }
 
-function buildYadda(library, device, logVerbose) {
+function buildYadda(library, device, server, logVerbose) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
@@ -50,7 +51,7 @@ function buildYadda(library, device, logVerbose) {
           builtLibrary,
           {
             ctx: {},
-            driver: buildDriver(),
+            driver: buildDriver(server),
             log: (label, data) => console.log(label, data)
           }
         );

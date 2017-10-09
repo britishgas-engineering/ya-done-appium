@@ -64,14 +64,25 @@ import steps from './steps';
   https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
 */
 
+// device to test on
 const device = {
-    platformName: 'Android',
-    platformVersion: '7.0',
-    deviceName: 'device',
-    app:  // Add Android APK path here
-  };
+  platformName: 'Android',
+  platformVersion: '7.0',
+  deviceName: 'device',
+  app:  // Add Android APK path here
+};
 
-yaddaCore(steps, device); // add additional true flag for global logging
+// server config sourcelabs as example (exclude or 'undefined' for localhost)
+const server =  {
+  host: 'whatever.whatever.com',
+  port: 80,
+  auth: `${your-auth}`,
+};
+
+// enable verbose logging in the console
+const verboseLogging = true;
+
+yaddaCore(steps, device, server, verboseLogging);
 ```
 
 **hello.feature**
