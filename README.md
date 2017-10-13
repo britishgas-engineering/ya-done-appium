@@ -1,11 +1,12 @@
 # ya-done-appium
 
-### From Version 0.3.0
+**Ready to use yadda BBD test framework with appium and chai**
+
+### In 1.0.1
 - to use async and await ensure you have _[babel-polyfill](https://www.npmjs.com/package/babel-polyfill)_
 - added log the _this_ available in steps
 - added global logging availability
-
-  **Ready to use yadda BBD test framework with appium and chai**  
+- updated example project and readme
 
 ```js
 npm i ya-done-appium --save
@@ -18,24 +19,6 @@ ya-done configures 'yadda' with chai with 'appium'. 'yadda' has been created wit
 - Pre-configured  _[yadda](https://github.com/acuminous/yadda)_
 - Pre-configured  _[chai](http://chaijs.com)_
 - Pre-configured  _[appium](http://appium.io)_
-
-### Default steps
-ya-done-appium has preconfigured "set-up" and "tear down" steps.
-- **end the test** _(calls quit on appium)_
-
-These steps are added to the yadda library by default and are used in the example project and seen below.
-
-### Configuration
-ya-done exposes "yaddaCore" which requires a step library to run.  
-
-```js
-import { yaddaCore } from 'ya-done-appium';
-import steps from './steps';
-/* configure */
-yaddaCore(steps);
-
-/* further configurations to follow*/
-```
 
 ### Example use
 For more information please look at the [example project](https://github.com/britishgas-engineering/ya-done-appium/tree/master/example).
