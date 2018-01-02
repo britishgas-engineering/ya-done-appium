@@ -4,7 +4,6 @@ const Yadda = require('yadda');
 const wd = require('wd');
 
 function buildDriver(server) {
-  require('source-map-support').install();
     const configServer = server || {
     host: 'localhost',
     port: 4723,
