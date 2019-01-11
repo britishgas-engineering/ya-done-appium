@@ -1,6 +1,6 @@
 {
   "name": "ya-done-appium",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Ready to use yadda - appium - chai framework",
   "repository": "https://github.com/britishgas-engineering/ya-done-appium",
   "author": "Darren Corbett",
@@ -8,10 +8,10 @@
   "main": "dist/index.js",
   "dependencies": {
     "appium": "^1.7.1",
-    "chai": "^3.5.0",
-    "mocha": "^3.5.3",
-    "spy": "^0.1.3",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "spy": "^1.0.0",
     "wd": "^1.4.1",
-    "yadda": "^0.22.1"
+    "yadda": "^2.0.1"
   }
 }
