@@ -1,4 +1,4 @@
-import {yaddaCore} from 'ya-done-appium';
+import { yaddaCore } from 'ya-done-appium';
 import steps from './steps';
 
 const localIos = {
@@ -19,14 +19,14 @@ const remoteIos = {
   platformName: 'iOs',
   platformVersion: '11.0',
   deviceName: 'iPhone 7 Plus',
-  app: `sauce-storage:${your-ipa}`
+  app: `sauce-storage:${your - ipa}`
 };
 
 const remoteIos = {
   platformName: 'iOs',
   platformVersion: '11.0',
   deviceName: 'iPhone 7 Plus',
-  app: `sauce-storage:${your-ipa}`
+  app: `sauce-storage:${your - ipa}`
 };
 
 const remoteAndroid = {
@@ -34,7 +34,7 @@ const remoteAndroid = {
   platformName: 'Android',
   platformVersion: '6.0',
   deviceName: 'Android Emulator',
-  app: `sauce-storage:${your-apk}`
+  app: `sauce-storage:${your - apk}`
 };
 
 // enable verbose logging in the console
