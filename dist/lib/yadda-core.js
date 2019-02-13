@@ -33,13 +33,13 @@ function setBaseSteps(library, device, deviceLogs) {
   return library;
 }
 
-function buildYadda(library, device, server, logVerbose) {
+function buildYadda(library, device, server, logVerbose, deviceLogs) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
   Yadda.plugins.mocha.StepLevelPlugin.init();
   const features = new Yadda.FeatureFileSearch('features');
-  const builtLibrary = setBaseSteps(library, device);
+  const builtLibrary = setBaseSteps(library, device, deviceLogs);
   if (logVerbose) {
     require("./log").configure(driver);
   }
