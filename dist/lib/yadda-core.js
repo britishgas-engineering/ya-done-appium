@@ -15,6 +15,7 @@ function setBaseSteps(library, device, deviceLogs) {
   library.define(
     'a mobile app',
       function setWindowSize(done) {
+        console.log(deviceLogs)
        this.driver.init(device).then((built) => {
          if (deviceLogs === true) {
          this.log('set-up device', built);
