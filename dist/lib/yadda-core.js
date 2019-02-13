@@ -17,7 +17,9 @@ function setBaseSteps(library, device, deviceLogs) {
       function setWindowSize(done) {
         console.log(deviceLogs)
        this.driver.init(device).then((built) => {
-        //  this.log('set-up device', built);
+         if (deviceLogs === true) {
+         this.log('set-up device', built);
+         }
          done();
        });
     }
