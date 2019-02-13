@@ -11,12 +11,14 @@ function buildDriver(server) {
   return wd.promiseChainRemote(configServer);
 };
 
-function setBaseSteps(library, device) {
+function setBaseSteps(library, device, deviceLogs) {
   library.define(
     'a mobile app',
       function setWindowSize(done) {
        this.driver.init(device).then((built) => {
+         if (deviceLogs === true) {
          this.log('set-up device', built);
+         }
          done();
        });
     }
