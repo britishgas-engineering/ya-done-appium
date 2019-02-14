@@ -2,6 +2,9 @@
 
 **Ready to use yadda BBD test framework with appium and chai**
 
+### In 1.1.1
+- added ability to run with device logging disabled (set `deviceLogs: true` to switch log back on in device configuration)
+
 ### In 1.0.1
 - to use async and await ensure you have _[babel-polyfill](https://www.npmjs.com/package/babel-polyfill)_
 - added log the _this_ available in steps
@@ -109,6 +112,7 @@ const localIos = {
   platformVersion: '11.0',
   deviceName: 'iPhone 7 Plus',
   app: // Add local ios ipa here
+  deviceLogs: true // This will print out the device configuration after booting device
 };
 
 // no server is required for local (exclude or 'undefined' for localhost)
@@ -131,6 +135,7 @@ const localAndroid = {
   platformVersion: '7.0',
   deviceName: 'device',
   app:  // Add local Android APK path here
+  deviceLogs: true // This will print out the device configuration after booting device
 };
 
 // no server is required for local (exclude or 'undefined' for localhost)
@@ -152,7 +157,8 @@ const remoteIos = {
   platformName: 'iOs',
   platformVersion: '11.0',
   deviceName: 'iPhone 7 Plus',
-  app: `sauce-storage:${your-ipa}`
+  app: `sauce-storage:${your-ipa}`,
+  deviceLogs: true // This will print out the device configuration after booting device
 };
 
 // enable verbose logging in the console
@@ -179,7 +185,8 @@ const remoteAndroid = {
   platformName: 'Android',
   platformVersion: '6.0',
   deviceName: 'Android Emulator',
-  app: `sauce-storage:${your-apk}`
+  app: `sauce-storage:${your-apk}`,
+  deviceLogs: true // This will print out the device configuration after booting device
 };
 
 // enable verbose logging in the console
