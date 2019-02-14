@@ -11,13 +11,12 @@ function buildDriver(server) {
   return wd.promiseChainRemote(configServer);
 };
 
-function setBaseSteps(library, device, deviceLogs) {
+function setBaseSteps(library, device) {
   library.define(
     'a mobile app',
       function setWindowSize(done) {
-        console.log(deviceLogs)
        this.driver.init(device).then((built) => {
-         if (deviceLogs === true) {
+         if (device.deviceLogs) {
          this.log('set-up device', built);
          }
          done();
@@ -34,13 +33,13 @@ function setBaseSteps(library, device, deviceLogs) {
   return library;
 }
 
-function buildYadda(library, device, server, logVerbose, deviceLogs) {
+function buildYadda(library, device, server, logVerbose) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
   Yadda.plugins.mocha.StepLevelPlugin.init();
   const features = new Yadda.FeatureFileSearch('features');
-  const builtLibrary = setBaseSteps(library, device, deviceLogs);
+  const builtLibrary = setBaseSteps(library, device);
   if (logVerbose) {
     require("./log").configure(driver);
   }
