@@ -43,20 +43,19 @@ function buildYadda(library, device, server, logVerbose) {
   if (logVerbose) {
     require("./log").configure(driver);
   }
+  const yadda = Yadda.createInstance(
+    builtLibrary,
+    {
+      ctx: {},
+      driver: buildDriver(server),
+      log: (label, data) => console.log(label, data)
+    }
+  );
   return features
   .each(
     file => featureFile(
       file,
       (feature) => {
-        const yadda = Yadda.createInstance(
-          builtLibrary,
-          {
-            ctx: {},
-            driver: buildDriver(server),
-            log: (label, data) => console.log(label, data)
-          }
-        );
-
         scenarios(
           feature.scenarios,
           (scenario) => {
