@@ -33,7 +33,7 @@ function setBaseSteps(library, device) {
   return library;
 }
 
-function buildYadda(library, device, server, logVerbose, featurePath) {
+function buildYadda(library, device, featurePath, server, logVerbose) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
