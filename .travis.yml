@@ -9,10 +9,8 @@ cache:
 before_install:
   - npm config set registry http://registry.npmjs.org/
   - npm config set spin false
-  - npm install -g appium
-  - npm install -g appium-doctor
-  - appium
-  - appium-doctor
+install:
+  - npm install
 script:
   - npm test
 notifications:
