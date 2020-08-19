@@ -1,6 +1,5 @@
 const Yadda = require('yadda');
 
-
 function readScenariosFromFeatureFiles(path){
   Yadda.plugins.mocha.StepLevelPlugin.init();
   const features = new Yadda.FeatureFileSearch(path);
