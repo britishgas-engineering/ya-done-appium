@@ -2,7 +2,7 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
-var mocha = require('mocha');
+const mocha = require('mocha');
 
 function buildDriver(server) {
     const configServer = server || {
