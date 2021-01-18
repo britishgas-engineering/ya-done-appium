@@ -2,6 +2,7 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
+const mocha = require('mocha');
 
 function buildDriver(server) {
     const configServer = server || {
@@ -33,12 +34,12 @@ function setBaseSteps(library, device) {
   return library;
 }
 
-function buildYadda(library, device, server, logVerbose) {
+function buildYadda(library, device, featurePath, server, logVerbose) {
   if (library === null || library === undefined) {
     throw new Error('step library has not been defined please write some steps');
   }
   Yadda.plugins.mocha.StepLevelPlugin.init();
-  const features = new Yadda.FeatureFileSearch('features');
+  const features = new Yadda.FeatureFileSearch(featurePath);
   const builtLibrary = setBaseSteps(library, device);
   if (logVerbose) {
     require("./log").configure(driver);
@@ -62,7 +63,7 @@ function buildYadda(library, device, server, logVerbose) {
             steps(
               scenario.steps,
               (step, done) => {
-                yadda.run(step, done);
+                yadda.run(step, { mocha: this }, done);
               }
             );
           }
