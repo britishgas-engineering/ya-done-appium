@@ -2,6 +2,7 @@
 /* global featureFile, scenarios, steps */
 const Yadda = require('yadda');
 const wd = require('wd');
+const mocha = require('mocha');
 
 function buildDriver(server) {
     const configServer = server || {
@@ -62,7 +63,7 @@ function buildYadda(library, device, featurePath, server, logVerbose) {
             steps(
               scenario.steps,
               (step, done) => {
-                yadda.run(step, done);
+                yadda.run(step, { mocha: this }, done);
               }
             );
           }
